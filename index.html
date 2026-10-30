@@ -13,7 +13,7 @@
     content="#2563eb"
   >
 
-  <title>Home & Go Seek Bingo</title>
+  <title>Zillow Bingo</title>
 
   <style>
     * {
@@ -24,16 +24,13 @@
       --blue: #2563eb;
       --blue-dark: #1d4ed8;
       --green: #16a34a;
-      --green-dark: #15803d;
       --red: #dc2626;
-      --orange: #ea580c;
       --text: #1f2937;
       --muted: #6b7280;
       --border: #d1d5db;
       --background: #f3f4f6;
       --card: #ffffff;
       --cell: #ffffff;
-      --free: #fef3c7;
       --marked: #2563eb;
     }
 
@@ -69,7 +66,10 @@
       margin: 4px 0 5px;
 
       text-align: center;
-      font-size: clamp(25px, 7vw, 34px);
+
+      font-size:
+        clamp(25px, 7vw, 34px);
+
       line-height: 1.1;
     }
 
@@ -98,8 +98,8 @@
     .controls {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
 
+      gap: 8px;
       margin-bottom: 12px;
     }
 
@@ -119,6 +119,7 @@
       font-weight: bold;
 
       cursor: pointer;
+
       touch-action: manipulation;
     }
 
@@ -146,10 +147,6 @@
       background: var(--green);
     }
 
-    .green:active {
-      background: var(--green-dark);
-    }
-
     .danger {
       color: white;
       background: var(--red);
@@ -162,7 +159,6 @@
       gap: 6px;
 
       margin-bottom: 12px;
-
       padding: 5px;
 
       background: #e5e7eb;
@@ -170,8 +166,8 @@
     }
 
     .size-button {
-      background: transparent;
       color: var(--muted);
+      background: transparent;
     }
 
     .size-button.active {
@@ -192,7 +188,7 @@
 
       border-radius: 10px;
 
-      font-size: 17px;
+      font-size: 19px;
       font-weight: bold;
     }
 
@@ -246,15 +242,11 @@
       color: var(--text);
       background: var(--cell);
 
-      border:
-        2px solid #cbd5e1;
-
+      border: 2px solid #cbd5e1;
       border-radius: 8px;
 
       text-align: center;
-
       font-weight: bold;
-
       line-height: 1.08;
 
       overflow-wrap: anywhere;
@@ -305,16 +297,15 @@
       opacity: 0.8;
     }
 
-    .square.free {
-      color: #92400e;
-      background: var(--free);
-      border-color: #f59e0b;
-    }
+    /*
+      FREE square now uses the exact same
+      blue as every other selected square.
+    */
 
-    .square.free.marked {
+    .square.free {
       color: white;
-      background: var(--green);
-      border-color: var(--green-dark);
+      background: var(--marked);
+      border-color: var(--blue-dark);
     }
 
     .bottom-controls {
@@ -330,7 +321,6 @@
       display: none;
 
       margin-top: 12px;
-
       padding: 14px;
 
       background: var(--card);
@@ -350,8 +340,7 @@
     }
 
     .editor-description {
-      margin:
-        0 0 10px;
+      margin: 0 0 10px;
 
       color: var(--muted);
 
@@ -363,15 +352,13 @@
       display: block;
 
       width: 100%;
-      min-height: 340px;
+      min-height: 380px;
 
       padding: 12px;
 
       resize: vertical;
 
-      border:
-        1px solid var(--border);
-
+      border: 1px solid var(--border);
       border-radius: 10px;
 
       font-family:
@@ -389,8 +376,7 @@
       border-color: var(--blue);
 
       box-shadow:
-        0 0 0 3px
-        rgba(37,99,235,0.12);
+        0 0 0 3px rgba(37,99,235,0.12);
     }
 
     .phrase-info {
@@ -429,6 +415,7 @@
     }
 
     @media (min-width: 520px) {
+
       body {
         padding-top: 24px;
       }
@@ -454,11 +441,11 @@
   <main class="app">
 
     <h1>
-      🏠 Home & Go Seek Bingo
+      🏠 Zillow Bingo
     </h1>
 
     <p class="subtitle">
-      Spot it in the house. Tap the square. Get Bingo.
+      Spot it in the listing. Tap the square. Get Bingo.
     </p>
 
 
@@ -571,8 +558,8 @@
       </h2>
 
       <p class="editor-description">
-        Enter one item per line. Blank lines and duplicate
-        entries are automatically ignored.
+        One item per line. Blank lines and duplicate entries
+        are automatically ignored.
       </p>
 
       <textarea
@@ -619,8 +606,8 @@
 
 
     <p class="instructions">
-      5×5 uses a free center square.
-      Tap any square to mark or unmark it.
+      5×5 includes a blue FREE center square.
+      Tap any other square to mark or unmark it.
       Rows, columns, and diagonals count as Bingo.
     </p>
 
@@ -635,57 +622,103 @@
     =====================================
     DEFAULT MASTER LIST
     =====================================
-
-    24 simple home-related items.
-
-    You can replace these later,
-    or edit them directly from the site.
-    =====================================
     */
 
     const DEFAULT_PHRASES = [
 
-      "Fireplace",
-      "Swimming Pool",
-      "Kitchen Island",
-      "Walk-In Closet",
-      "Double Oven",
-      "Garage",
-      "Basement",
-      "Patio",
+      'Crazy Color Bathroom',
+      'Animal Print Furniture',
+      'Indoor Pool',
+      'Home Theater',
+      'Pinball/Arcade Machine',
+      'Library Ladder',
+      'Standalone Fountain',
+      'Pool Slide',
+      'Antlers on Wall',
+      'Spiral Staircase',
 
-      "Deck",
-      "Bay Window",
-      "Ceiling Fan",
-      "Bathtub",
-      "Pantry",
-      "Laundry Room",
-      "Dining Room",
-      "Home Office",
+      'Outdoor TV',
+      'Party Shower',
+      'Wine Cellar',
+      'Outdoor Court',
+      'Workshop',
+      'Sauna',
+      'Putting Green/Golf Sim',
+      'Guest House',
+      'Built In Pizza Oven',
+      'Elevator',
 
-      "Fenced Yard",
-      "Front Porch",
-      "Backyard",
-      "Built-In Shelves",
-      "Chandelier",
-      "Hardwood Floors",
-      "Carpet",
-      "Mudroom"
+      'Pool Bar/Table/Swim Seating',
+      'Horse Barn',
+      'Bridge Over "Water"',
+      'Pool Waterfall',
+      'Outdoor Shower',
+      'Hammock',
+      'Koi Pond',
+      'Bunk Beds',
+      'Kardashian Kloset',
+      '5+ Gym Equipment',
+
+      'Glass Ceiling/Skylight',
+      'Portrait Over Fireplace',
+      'Conversation Pit',
+      '4+ Garage Doors',
+      'Full Size Surfboard',
+      'Suit of Armor/Swords/Gun',
+      'Sports Team Fandom (5+)',
+      'Polka Dot Walls',
+      '"Fur"',
+      'Fruit Bearing Tree',
+
+      'Spire Roof',
+      'Saddle Decor',
+      'Double Staircase',
+      'Double Sided Fireplace',
+      'Interior Barn Doors',
+      'Pocket Doors',
+      '2nd Kitchen Sink',
+      'Slots/Poker/Gambling',
+      'Aquarium',
+      'Pool Table/Bowling/Ping Pong/Air Hockey/Foosball/etc.',
+
+      'Grand Piano',
+      '10+ Dining Room Chairs',
+      'Grass Grid Driveway',
+      'Middle of Room Bathtub',
+      'Bidet',
+      'Infinity Edge Pool',
+      'Car on Display',
+      'Four Poster Bed',
+      'Lake/Beach Front',
+      'Stained Glass',
+
+      'Lit Fireplace',
+      'On/Near Golf Course',
+      'Waterfall Edge Countertop',
+      'RGB Lighting',
+      'Glowing Pool',
+      'Musical Instruments/Jukebox',
+      '2x Kitchen Island',
+      'Gate with Symbol',
+      'Vineyard/Farmland',
+      'River/Pond',
+
+      'Lake Dock'
 
     ];
 
 
     /*
     =====================================
-    STORAGE KEYS
+    STORAGE
     =====================================
     */
 
     const PHRASE_STORAGE_KEY =
-      "hagsBingoPhrases";
+      "zillowBingoPhrases";
 
     const SIZE_STORAGE_KEY =
-      "hagsBingoSize";
+      "zillowBingoSize";
 
 
     /*
@@ -777,16 +810,19 @@
 
     let currentCard = [];
 
-    let marked = new Set();
+    let marked =
+      new Set();
 
 
     /*
     =====================================
-    PHRASE HELPERS
+    CLEAN PHRASE LIST
     =====================================
     */
 
-    function cleanPhraseList(list) {
+    function cleanPhraseList(
+      list
+    ) {
 
       const seen =
         new Set();
@@ -832,6 +868,12 @@
       return cleaned;
     }
 
+
+    /*
+    =====================================
+    LOAD PHRASES
+    =====================================
+    */
 
     function loadPhrases() {
 
@@ -932,12 +974,8 @@
         boardSize === 5
       ) {
 
-        /*
-        25 cells minus
-        the free center.
-        */
-
         return 24;
+
       }
 
 
@@ -945,7 +983,9 @@
     }
 
 
-    function setBoardSize(size) {
+    function setBoardSize(
+      size
+    ) {
 
       boardSize =
         size;
@@ -988,7 +1028,9 @@
     =====================================
     */
 
-    function shuffleArray(items) {
+    function shuffleArray(
+      items
+    ) {
 
       const array =
         [...items];
@@ -1033,7 +1075,7 @@
 
     /*
     =====================================
-    CREATE CARD
+    CREATE NEW CARD
     =====================================
     */
 
@@ -1070,6 +1112,7 @@
         phraseInfo.className =
           "phrase-info error";
 
+
         return;
       }
 
@@ -1084,8 +1127,13 @@
         );
 
 
-      currentCard = [];
+      currentCard =
+        [];
 
+
+      /*
+      3x3
+      */
 
       if (
         boardSize === 3
@@ -1099,6 +1147,11 @@
 
       } else {
 
+        /*
+        5x5 uses 24 random phrases
+        plus FREE center.
+        */
+
         const selected =
           shuffled.slice(
             0,
@@ -1106,13 +1159,11 @@
           );
 
 
-        /*
-        5x5 center index = 12.
-        */
-
         for (
           let i = 0;
+
           i < 25;
+
           i++
         ) {
 
@@ -1124,13 +1175,21 @@
               "FREE 🏠"
             );
 
-            marked.add(12);
+
+            /*
+            FREE square starts marked.
+            */
+
+            marked.add(
+              12
+            );
 
           } else {
 
             currentCard.push(
               selected.shift()
             );
+
           }
         }
       }
@@ -1144,7 +1203,7 @@
 
     /*
     =====================================
-    RENDER BOARD
+    DRAW BOARD
     =====================================
     */
 
@@ -1202,6 +1261,7 @@
               .add(
                 "free"
               );
+
           }
 
 
@@ -1214,6 +1274,7 @@
               .add(
                 "marked"
               );
+
           }
 
 
@@ -1224,6 +1285,7 @@
               toggleSquare(
                 index
               );
+
             }
           );
 
@@ -1231,6 +1293,7 @@
           board.appendChild(
             square
           );
+
         }
       );
     }
@@ -1238,15 +1301,16 @@
 
     /*
     =====================================
-    MARK / UNMARK
+    TOGGLE SQUARE
     =====================================
     */
 
-    function toggleSquare(index) {
+    function toggleSquare(
+      index
+    ) {
 
       /*
-      The 5x5 free square
-      always stays marked.
+      FREE square stays marked.
       */
 
       if (
@@ -1271,6 +1335,7 @@
         marked.add(
           index
         );
+
       }
 
 
@@ -1299,6 +1364,7 @@
         marked.add(
           12
         );
+
       }
 
 
@@ -1310,7 +1376,7 @@
 
     /*
     =====================================
-    BINGO DETECTION
+    BINGO LINES
     =====================================
     */
 
@@ -1321,12 +1387,14 @@
 
 
       /*
-      Rows.
+      ROWS
       */
 
       for (
         let row = 0;
+
         row < boardSize;
+
         row++
       ) {
 
@@ -1336,30 +1404,37 @@
 
         for (
           let col = 0;
+
           col < boardSize;
+
           col++
         ) {
 
           line.push(
-            row * boardSize +
+            row *
+            boardSize +
             col
           );
+
         }
 
 
         lines.push(
           line
         );
+
       }
 
 
       /*
-      Columns.
+      COLUMNS
       */
 
       for (
         let col = 0;
+
         col < boardSize;
+
         col++
       ) {
 
@@ -1369,25 +1444,30 @@
 
         for (
           let row = 0;
+
           row < boardSize;
+
           row++
         ) {
 
           line.push(
-            row * boardSize +
+            row *
+            boardSize +
             col
           );
+
         }
 
 
         lines.push(
           line
         );
+
       }
 
 
       /*
-      Main diagonal.
+      DIAGONAL 1
       */
 
       const diagonal1 =
@@ -1396,14 +1476,18 @@
 
       for (
         let i = 0;
+
         i < boardSize;
+
         i++
       ) {
 
         diagonal1.push(
-          i * boardSize +
+          i *
+          boardSize +
           i
         );
+
       }
 
 
@@ -1413,7 +1497,7 @@
 
 
       /*
-      Opposite diagonal.
+      DIAGONAL 2
       */
 
       const diagonal2 =
@@ -1422,18 +1506,25 @@
 
       for (
         let i = 0;
+
         i < boardSize;
+
         i++
       ) {
 
         diagonal2.push(
-          i * boardSize +
+
+          i *
+          boardSize +
+
           (
             boardSize -
             1 -
             i
           )
+
         );
+
       }
 
 
@@ -1445,6 +1536,12 @@
       return lines;
     }
 
+
+    /*
+    =====================================
+    CHECK FOR BINGO
+    =====================================
+    */
 
     function checkBingo() {
 
@@ -1462,8 +1559,10 @@
                 return marked.has(
                   index
                 );
+
               }
             );
+
           }
         );
 
@@ -1483,13 +1582,14 @@
 
         status.className =
           "status";
+
       }
     }
 
 
     /*
     =====================================
-    PHRASE EDITOR
+    EDITOR
     =====================================
     */
 
@@ -1510,11 +1610,6 @@
 
       updatePhraseInfo();
 
-
-      /*
-      Bring editor into view
-      on mobile.
-      */
 
       editor.scrollIntoView({
         behavior:
@@ -1544,7 +1639,8 @@
 
       return cleanPhraseList(
 
-        phraseEditor.value
+        phraseEditor
+          .value
           .split("\n")
 
       );
@@ -1562,20 +1658,32 @@
 
 
       phraseInfo.textContent =
+
         list.length +
+
         " unique phrases. " +
+
         boardSize +
+
         "×" +
+
         boardSize +
-        " needs at least " +
+
+        " requires at least " +
+
         needed +
+
         ".";
 
 
       phraseInfo.className =
+
         list.length >= needed
-          ? "phrase-info"
-          : "phrase-info error";
+
+        ? "phrase-info"
+
+        : "phrase-info error";
+
     }
 
 
@@ -1595,17 +1703,25 @@
       ) {
 
         phraseInfo.textContent =
+
           "Add at least " +
+
           needed +
+
           " unique phrases for a " +
+
           boardSize +
+
           "×" +
+
           boardSize +
+
           " board.";
 
 
         phraseInfo.className =
           "phrase-info error";
+
 
         return;
       }
@@ -1670,6 +1786,7 @@
         setBoardSize(
           3
         );
+
       }
     );
 
@@ -1681,6 +1798,7 @@
         setBoardSize(
           5
         );
+
       }
     );
 
@@ -1735,7 +1853,7 @@
 
     /*
     =====================================
-    START
+    START GAME
     =====================================
     */
 
