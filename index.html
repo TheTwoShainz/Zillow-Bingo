@@ -47,10 +47,7 @@
         12px
         max(24px, env(safe-area-inset-bottom));
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
 
       color: var(--text);
       background: var(--background);
@@ -119,7 +116,6 @@
       font-weight: bold;
 
       cursor: pointer;
-
       touch-action: manipulation;
     }
 
@@ -140,11 +136,6 @@
     .secondary {
       color: var(--text);
       background: #e5e7eb;
-    }
-
-    .green {
-      color: white;
-      background: var(--green);
     }
 
     .danger {
@@ -298,8 +289,8 @@
     }
 
     /*
-      FREE square now uses the exact same
-      blue as every other selected square.
+      FREE uses the exact same blue
+      as a selected Bingo square.
     */
 
     .square.free {
@@ -310,10 +301,9 @@
 
     .bottom-controls {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
 
       gap: 8px;
-
       margin-top: 12px;
     }
 
@@ -361,10 +351,7 @@
       border: 1px solid var(--border);
       border-radius: 10px;
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
 
       font-size: 16px;
       line-height: 1.45;
@@ -521,7 +508,7 @@
       ></div>
 
 
-      <!-- BOTTOM CONTROLS -->
+      <!-- RESET -->
 
       <div class="bottom-controls">
 
@@ -531,14 +518,6 @@
           type="button"
         >
           ↺ Reset Marks
-        </button>
-
-        <button
-          id="shuffleButton"
-          class="green"
-          type="button"
-        >
-          🔀 Shuffle
         </button>
 
       </div>
@@ -755,11 +734,6 @@
     const resetButton =
       document.getElementById(
         "resetButton"
-      );
-
-    const shuffleButton =
-      document.getElementById(
-        "shuffleButton"
       );
 
     const editButton =
@@ -1132,7 +1106,7 @@
 
 
       /*
-      3x3
+      3×3
       */
 
       if (
@@ -1148,7 +1122,8 @@
       } else {
 
         /*
-        5x5 uses 24 random phrases
+        5×5:
+        24 random phrases
         plus FREE center.
         */
 
@@ -1175,10 +1150,6 @@
               "FREE 🏠"
             );
 
-
-            /*
-            FREE square starts marked.
-            */
 
             marked.add(
               12
@@ -1310,7 +1281,7 @@
     ) {
 
       /*
-      FREE square stays marked.
+      FREE square always stays marked.
       */
 
       if (
@@ -1539,7 +1510,7 @@
 
     /*
     =====================================
-    CHECK FOR BINGO
+    CHECK BINGO
     =====================================
     */
 
@@ -1804,12 +1775,6 @@
 
 
     newCardButton.addEventListener(
-      "click",
-      createNewCard
-    );
-
-
-    shuffleButton.addEventListener(
       "click",
       createNewCard
     );
